@@ -1,0 +1,37 @@
+---
+title: "Module_2_assignment"
+author: "Aaron_M"
+date: "1/22/2021"
+output: html_document
+---
+
+
+```{r data}
+#This is the data as it was given in canvas
+
+assignment2 <- c(16, 18, 14, 22, 27, 17, 19, 17, 17, 22, 20, 22)
+
+```
+
+```{r original}
+#This is the original function that was given in canvas
+
+#myMean <- function(assignment2) { return(sum(assignment)/length(someData)) }
+
+#myMean(assignment2)
+
+#Here is the output after I run this function: 
+#Error in myMean(assignment2) : object 'assignment' not found
+
+#The problem here is that the arguments of this function do not match. assignment and someData must both be changed to assignment2. My reference is pg. 7 of The Art of Programming. The name of the argument could be anything(as long as it contains acceptable charaters like letters and numbers). Whats important here is that it has to remain the same in the function itself
+
+```
+
+```{r Corrected}
+#This is my corrected version of the myMean function
+
+myMean <- function(some_object) { return(sum(some_object)/length(some_object)) }
+
+myMean(assignment2)
+
+```
