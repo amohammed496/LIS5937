@@ -34,4 +34,6 @@ myMean <- function(some_object) { return(sum(some_object)/length(some_object)) }
 
 myMean(assignment2)
 
+#Output is 19.25
 ```
+
