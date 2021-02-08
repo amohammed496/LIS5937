@@ -1,0 +1,64 @@
+---
+title: "Module_4"
+author: "Aaron_M"
+date: "2/7/2021"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+
+Frequency <- c(0.6,0.3,0.4,0.4,0.2,0.6,0.3,0.4,0.9,0.2)
+BP <- c(103,87,32,42,59,109,78,205,135,176)
+First <- c(1,1,1,1,0,0,0,0,NA,1)
+Second <- c(0,0,1,1,0,0,1,1,1,1)
+FinalDecision <- c(0,1,0,1,0,1,0,1,1,1)
+
+```
+
+```{r}
+
+par(mfrow=c(1,2))
+boxplot(Frequency)
+hist(Frequency)
+
+```
+```{r}
+
+par(mfrow=c(1,2))
+boxplot(BP)
+hist(BP)
+
+```
+```{r}
+
+#Compares each assessment with the final decision and saves the results in objects
+
+Fir <- First == FinalDecision
+Sec <- Second == FinalDecision
+
+Fir
+Sec
+
+```
+
+```{r}
+
+#Calculates the accuracy of the first assessment by counting all the times the first doctor was right while excluding the time no assessment was given and dividing by the total number of patients while exculding the one where no assessment was given
+
+first_accuracy <- length(Fir[Fir==TRUE & !is.na(Fir)])/length(Fir[!is.na(Fir)])
+first_accuracy
+
+```
+
+```{r}
+
+#Calculates the accuracy of the second assessment by counting all the times the second doctor was right and dividing by the total number of patients 
+
+Second_accuracy <- length(Sec[Sec==TRUE])/length(Sec)
+Second_accuracy
+
+#According to my analysis, the second doctor was more accurate. The first doctor was right only 5 times while the second was right 6 times. Excluding the patient where no assessment was given, about 56% of the first doctor's ratings were accurate. 60% of the second doctor's ratings were accurate.
+
+```
