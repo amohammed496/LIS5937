@@ -17,7 +17,7 @@ boxplot(Frequency)
 hist(Frequency)
 ```
 
-![](Module_4_final_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![figure-gfm/unnamed-chunk-2-1.png](Module_4_final_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ``` r
 par(mfrow=c(1,2))
@@ -25,7 +25,7 @@ boxplot(BP)
 hist(BP)
 ```
 
-![](Module_4_final_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![figure-gfm/unnamed-chunk-3-1.png](Module_4_final_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ``` r
 #Compares each assessment with the final decision and saves the results in objects
