@@ -1,0 +1,78 @@
+---
+title: "Module_5"
+author: "Aaron_M"
+date: "2/14/2021"
+output: github_document
+---
+
+```{r}
+
+#Our assignment for module 5 was to calculate the inverse and determinant of A and B shown below:
+
+A <- matrix(1:100, nrow=10)
+
+B <- matrix(1:1000, nrow=10)
+
+#R has a built in function to calculate the inverses of matrices called solve(). 
+
+#solve(A)
+
+#I tried using the solve() function to calculate of the inverse of A, but got an error saying system is exactly singular
+
+#I used the built in function called det() to calculate the determinant 
+
+det(A)
+
+#The determinant of A is 0, this is why I got that first error. The inverse of A cannot be calculated because its determinant is 0
+
+#solve(B)
+
+#det(B)
+
+#Matrix B is not a square matrix, therefore, neither its inverse nor determinant can be calculated
+
+```
+
+```{r}
+
+#Our original assignment was to calculate the inverse and determinants of A and B. Because it's impossible to calculate the inverses of these matrices and impossible to calculate the determinant of B, I'm not sure what else we were expected to do in the original assignment. In an announcement, a procedure was outlined. I'm not sure what this procedure is meant to do or what it has to do with calculating the inverse and determinants of A and B. Nonetheless, my attempt at following the procedure is shown below (were we expected to manipulate A and B to create new matrices that would allow us to calculate inverses? That was not stated in the original assignment. The original assignment was to calculate the inverse and determinants of A and B):
+
+#Create two vectors (a and b)
+
+a <- c(1:10)
+
+b <- c(1:100)
+
+#multiply matrices by vectors
+
+a_1 <- A%*%a
+
+b_1 <- B%*%b
+
+#re-assign the vectors a and b to equal the number of rows of the column for the corresponding matrix
+
+a <- matrix(a, nrow=10)
+
+b <- matrix(b, nrow=100)
+
+#Multiply the matrix by a matrix 
+
+a_2 <- A%*%a
+
+b_2 <- B%*%b
+
+#Inverse a matrix 
+
+S=matrix(2:5, nrow=2)
+
+#check det() 
+
+det(S)
+
+solve(S)
+
+#This assignment was very confusing, specifically the procedure outlined in the announcement. Again, the original assignment was to calculate the inverse and determinants of A and B. the inverse of A cannot be calculated because its determinant is 0. The inverse and determinant of B cannot be calculated because B is not a square matrix. Where did the procedure in the announcement come from? What was its purpose? What did it have to do with calculating the inverse and determinants of matrices that cannot be inverted? Were we supposed to create our own matrices that could be inverted? If so, that was not stated in the original assignment. 
+
+#I tried my best with this assignment and did what was originally assigned
+
+```
