@@ -1,0 +1,57 @@
+---
+title: "Module_8"
+author: "Aaron_M"
+date: "3/7/2021"
+output: github_document 
+---
+
+```{r}
+
+library(plyr)
+
+```
+
+```{r}
+
+data <- read.table(file.choose(), header= TRUE, sep = ",")
+
+data
+
+```
+
+```{r}
+
+sex_avg = ddply(data,"Sex",transform, Avg.Grade.By.Sex=mean(Grade))
+
+sex_avg
+
+```
+
+```{r}
+
+write.table(sex_avg, "Average Grades by Gender", sep=",")
+
+```
+
+```{r}
+
+names_i <- subset(sex_avg, grepl("i", sex_avg$Name, ignore.case=T))
+names_i
+
+```
+
+```{r}
+
+write.table(names_i,"Students with i in name",sep=",")
+
+write.csv(names_i,"Students with i in name a using write csv")
+
+```
+
+```{r}
+
+i_in_name <- read.csv(file.choose(), check.names=FALSE)
+
+i_in_name
+
+```
