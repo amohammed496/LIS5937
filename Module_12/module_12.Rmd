@@ -1,0 +1,99 @@
+---
+title: "Module_12"
+author: "Aaron_M"
+date: "4/3/2021"
+output: pdf_document
+---
+
+# Analysis of Professor Salaries
+
+```{r}
+
+library(carData)
+library(ggplot2)
+library(lattice)
+
+head(Salaries,10)
+
+```
+
+# Average Salary
+
+```{r}
+
+library(dplyr)
+
+sal_mean_yrs <- by(Salaries$salary,Salaries$yrs.service,mean)
+sal_mean_yrs <- as.matrix(sal_mean_yrs)
+
+yrs_ser <- sort(Salaries$yrs.service[!duplicated(Salaries$yrs.service)])
+
+
+
+sal_mean_phd <- by(Salaries$salary,Salaries$yrs.since.phd,mean)
+sal_mean_phd <- as.matrix(sal_mean_phd)
+
+yrs_phd <- sort(Salaries$yrs.since.phd[!duplicated(Salaries$yrs.since.phd)])
+
+plot(yrs_ser, sal_mean_yrs,'l',xlab='Years in Service',ylab='Average Salary',main='Average Salary by Years of Service')
+plot(yrs_phd, sal_mean_phd,'l',xlab='Years After PhD',ylab='Average Salary',main='Average Salary by Years After PhD')
+
+
+
+```
+
+# Salary Boxplots
+
+```{r}
+
+
+box1 <- ggplot(Salaries, aes(x = sex, y = salary)) +
+        geom_boxplot() + ggtitle("Boxplot of Salaries by Sex") + theme(plot.title = element_text(hjust = 0.45)) + scale_x_discrete(name = "Sex") +
+        scale_y_continuous(name = "Salary") + geom_boxplot(fill = 'orange', colour = 'blue')
+
+box2 <- ggplot(Salaries, aes(x = discipline, y = salary)) +
+        geom_boxplot() + ggtitle("Boxplot of Salaries by Discipline") + theme(plot.title = element_text(hjust = 0.45)) + scale_x_discrete(name = "Discipline") +
+        scale_y_continuous(name = "Salary") + geom_boxplot(fill = 'green', colour = 'red')
+
+box3 <- ggplot(Salaries, aes(x = rank, y = salary)) +
+        geom_boxplot() + ggtitle("Boxplot of Salaries by Rank") + theme(plot.title = element_text(hjust = 0.45)) + scale_x_discrete(name = "Rank") +
+        scale_y_continuous(name = "Salary") + geom_boxplot(fill = 'purple', colour = 'black')
+
+box1
+box2
+box3
+
+```
+
+# Salary Frequencies
+
+```{r}
+
+
+
+his1 <- histogram(~Salaries$salary|Salaries$discipline, Salaries, xlab = "Salary", ylab="Frequency (%)",main='Frequency of Salary by Discipline',col = c("cyan", "coral1"), type='percent')
+
+his2 <- histogram(~Salaries$salary|Salaries$sex, Salaries, xlab = "Salary", ylab="Frequency (%)",main='Frequency of Salary by Sex',col = c("cyan", "coral1"),type='percent')
+
+his3 <- histogram(~Salaries$salary|Salaries$rank, Salaries, xlab = "Salary", ylab="Frequency (%)",main='Frequency of Salary by Rank',col = c("cyan", "coral1"), type='percent')
+
+
+his1
+his2
+his3
+
+```
+
+```{r}
+
+his4 <- histogram(~Salaries$sex|Salaries$rank, Salaries, xlab = "Sex", ylab="Frequency (%)",main='Frequency of Sex by Rank',col = c("cyan", "coral1"), type='percent')
+
+
+his4
+
+```
+
+
+
+
+
